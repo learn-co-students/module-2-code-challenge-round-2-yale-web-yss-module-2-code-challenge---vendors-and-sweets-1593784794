@@ -1,0 +1,25 @@
+<% if flash[:errors] %>
+    <ul>
+        <% flash[:errors].each do |error| %>
+            <li style="color: red"> <%= error %> </li>
+        <% end %>
+    </ul>
+<% end %>
+
+<h1>Create A Vendor Sweet</h1>
+
+<%= form_for @vendor_sweet do |f| %>
+
+<%= f.label :vendors%>
+<%= f.collection_select :vendor_id, @vendors, :id, :name%>
+
+<%= f.label :sweets%>
+<%= f.collection_select :sweet_id, @sweets, :id, :name%>
+
+<%= f.label :price%>
+<%= f.number_field :price%>
+
+<%= f.submit %>
+
+<% end %>
+
